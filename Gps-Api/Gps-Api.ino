@@ -6,10 +6,10 @@
 TinyGPSPlus gps;  // Objeto TinyGPS++
 HardwareSerial ss(1);
 
-const char* ssid = "INFRANET";        // Cambia por tu red Wi-Fi
-const char* password = "pgwrc9q34q"; // Cambia por tu contraseña
+const char* ssid = "NETWORK";        
+const char* password = "PASSWORD"; 
 
-WebServer server(80); // Servidor HTTP en el puerto 80
+WebServer server(80); 
 
 void setup() {
   Serial.begin(115200);
@@ -35,15 +35,15 @@ void setup() {
 }
 
 void loop() {
-  server.handleClient(); // Maneja las solicitudes HTTP entrantes
+  server.handleClient(); 
 
-  // Procesar datos del GPS
+  // GPS Data
   while (ss.available() > 0) {
     gps.encode(ss.read());
   }
 }
 
-// Manejador de la API JSON
+// API JSON
 void handleGPSData() {
   if (gps.location.isValid()) {
     String json = "{";
