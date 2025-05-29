@@ -1,2 +1,2 @@
 # 50-CP-Api-gps-esp32
-Api service for gps data
+API Service for GPS data using ESP32 module
